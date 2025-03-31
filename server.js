@@ -7,7 +7,7 @@ const Joi = require('joi');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router(); 
-const verifyToken = require("./middlewares/verifyToken"); // Import middleware
+const verifyToken = require("./verifyToken"); // Import middleware
 const WebSocket = require('ws');
 const http = require('http'); // Import HTTP module
 
