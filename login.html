@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <script defer src="loginscript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-container" class="form-container ">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></p>
+        </div>
+        <!-- Signup Form -->
+        <div id="signup-container" class="form-container hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="tel" id="signup-phone" placeholder="Phone Number" required>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+            <input type="password" id="signup-password" placeholder="Create Password" required>
+            <button onclick="signup()">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+        </div>
+
+        
+    </div>
+    <script>
+        function signup() {
+        let name = document.getElementById("signup-name").value.trim();
+        let email = document.getElementById("signup-email").value.trim();
+        let phone = document.getElementById("signup-phone").value.trim();
+        let password = document.getElementById("signup-password").value;
+    
+        let nameRegex = /^[A-Za-z\s]+$/;
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let phoneRegex = /^[0-9]{10}$/;
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Min 8 chars, 1 letter, 1 number
+    
+        if (!nameRegex.test(name)) {
+            alert("Invalid name. Use only letters and spaces.");
+            return;
+        }
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format.");
+            return;
+        }
+        if (!phoneRegex.test(phone)) {
+            alert("Phone number must be 10 digits.");
+            return;
+        }
+        if (!passwordRegex.test(password)) {
+            alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+            return;
+        }
+    
+        alert("Signup successful!");
+        // Proceed with signup logic (e.g., sending data to server)
+    }
+    
+    function login() {
+        let email = document.getElementById("login-email").value.trim();
+        let password = document.getElementById("login-password").value;
+    
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    
+        if (!emailRegex.test(email)) {
+            alert("Invalid email format.");
+            return;
+        }
+        if (!passwordRegex.test(password)) {
+            alert("Invalid password format. It must be at least 8 characters long and contain at least one letter and one number.");
+            return;
+        }
+    
+        alert("Login successful!");
+        // Proceed with login logic (e.g., checking credentials)
+    }
+    
+    function toggleForms() {
+        document.getElementById("signup-container").classList.toggle("hidden");
+        document.getElementById("login-container").classList.toggle("hidden");
+    }
+    
+    </script>
+</body>
+
+</html>

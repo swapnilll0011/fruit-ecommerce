@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="front-header.css">
+    <link rel="stylesheet" href="Footer.css">
+</head>
+<header class="header">
+    <img alt="logo" class="h-10 w-20" height="35" src="images/LogoFruitfulFinds.png" width="80"/>
+    
+    <div class="search-box">
+      <img src="images/search icone.png" alt="search">
+        <input type="text" class="form-control" placeholder='Search for "Fruits"'/>
+    </div>
+    
+    <button class="btn btn-light" onclick="window.location.href='login.html'">Login</button>
+</header>
+
+<body class="bg-gray-100">
+    <br>
+    <br>
+    
+    <section class="max-w-6xl mx-auto p-8 bg-white rounded-lg shadow-md mt-6">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">About Us</h1>
+            <p class="text-gray-600 mt-2">Learn more about our mission, vision, and values.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Our Story</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    Fruitful Finds is an intuitive and user-friendly e-commerce platform designed to provide customers with a seamless online shopping experience for fresh fruits. Whether you're looking for seasonal varieties, exotic fruits, or everyday favorites, Fruitful Finds offers a wide selection of the highest quality fruits, delivered fresh to your doorstep. The platform makes it easier than ever for consumers to browse, buy, and enjoy fresh produce at competitive prices.
+                </p>
+            </div>
+            <div>
+                <img src="images\LogoFruitfulFinds.png" alt="About Us Image" class="rounded-lg shadow-md">
+            </div>
+        </div>
+        
+        <div class="mt-10">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Our Mission & Values</h2>
+            <p class="text-gray-600 leading-relaxed text-center">
+                We are dedicated to making a meaningful impact by delivering innovative solutions that empower both individuals and businesses. Our core values—integrity, innovation, and unwavering customer commitment—drive everything we do.
+            </p>
+        </div>
+    </section>
+
+    <!-- Placeholder for Footer -->
+    <div id="footer-container"></div>
+    <script src="Footer.js"></script>
+</body>
+</html>

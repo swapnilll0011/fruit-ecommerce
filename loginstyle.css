@@ -1,0 +1,90 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url('images/bg111.webp') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(5px); /* Apply blur effect to the background */
+}
+
+/* Centering container */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Prevents it from becoming too large */
+    text-align: center;
+    
+    /* Centering */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Links */
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Hide elements when necessary */
+.hidden {
+    display: none;
+}
+
+/* 📱 Mobile responsiveness */
+@media screen and (max-width: 600px) {
+    body {
+        height: 100vh; /* Ensures body takes full height */
+        padding: 0; /* Removes extra space */
+    }
+
+    .container {
+        width: 90%;
+        max-width: 300px; /* Adjust size for smaller screens */
+        padding: 15px;
+    }
+
+    input, button {
+        padding: 14px;
+        font-size: 14px;
+    }
+}

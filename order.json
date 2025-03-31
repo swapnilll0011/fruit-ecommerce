@@ -1,0 +1,30 @@
+[
+    {
+      "orderId": "ORD001",
+      "customerName": "John Doe",
+      "item": "Apple",
+      "quantity": 5,
+      "totalPrice": 10.50,
+      "status": "Pending",
+      "date": "2025-03-17T10:00:00Z"
+    },
+    {
+      "orderId": "ORD002",
+      "customerName": "Jane Smith",
+      "item": "Banana",
+      "quantity": 10,
+      "totalPrice": 8.00,
+      "status": "Shipped",
+      "date": "2025-03-16T15:30:00Z"
+    },
+    {
+      "orderId": "ORD003",
+      "customerName": "Alice Johnson",
+      "item": "Mango",
+      "quantity": 3,
+      "totalPrice": 12.75,
+      "status": "Delivered",
+      "date": "2025-03-15T12:15:00Z"
+    }
+  ]
+  

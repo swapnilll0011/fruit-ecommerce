@@ -1,0 +1,379 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Profile Page
+  </title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {},
+        },
+    };
+</script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <!-- Header Section -->
+  <header class="bg-#ce974e-500 p-4 flex items-center justify-between">
+    <img alt="logo" class="h-10" height="40" src="images/LogoFruitfulFinds.png" width="100" onclick="window.location.href='login.html'"/>
+    <!-- Close Button -->
+    <!-- Close Button with X symbol -->
+    <button onclick="goBack()" class="text-black p-2 rounded-full hover:scale-105 transition duration-300 ease-in-out">
+        <i class="fas fa-times"></i> <!-- Font Awesome 'X' icon -->
+    </button>
+    
+  
+ </header>
+ 
+ <section class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 slide-in flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
+  <!-- Profile Picture -->
+  <div class="w-20 h-20 md:w-24 md:h-24 aspect-square">
+      <img src="images/apple dp.avif" alt="Profile Picture" class="w-full h-full rounded-full object-cover border-2 border-gray-300">
+  </div>
+  
+  <!-- User Info -->
+  <div class="flex-1 text-center md:text-center space-y-4">
+      <h2 class="text-2xl font-bold mb-2">fruit</h2>
+      <p id="user-email" class="text-gray-600 mb-4">fruit12@gmail.com</p>
+      <div class="flex justify-center items-center space-x-4">
+          <span class="bg-green-500 text-white px-2 py-1 rounded-full text-sm">Verified</span>
+          <button onclick="openModal()" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-300 ease-in-out transform hover:scale-105">
+            Edit Profile
+        </button>
+        
+      </div>
+  </div>
+  
+ <!-- Address Section -->
+<div class="text-center md:text-right space-y-2">
+    <h3 class="text-lg font-semibold">Address</h3>
+    <p id="address-line1" class="text-gray-600">Loading...</p>
+    <p id="address-line2" class="text-gray-600"></p>
+    <p id="zip-code" class="text-gray-600"></p>
+</div>
+</section>
+
+
+ 
+<!-- Order Summary Section -->
+<section class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 slide-in">
+    <h3 class="text-xl font-bold mb-4">Recent Orders</h3>
+  
+    <!-- Orders List -->
+    <div id="recent-orders-container" class="space-y-4"></div>
+  
+    
+  </section>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("token"); // Get user token from localStorage
+    const ordersContainer = document.getElementById("recent-orders-container");
+  
+    if (!token) {
+      ordersContainer.innerHTML = "<p class='text-gray-500'>Please log in to view your orders.</p>";
+      return;
+    }
+  
+    try {
+      const response = await fetch("http://localhost:3000/api/orders", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        displayOrders(data);
+      } else {
+        ordersContainer.innerHTML = `<p class='text-gray-500'>${data.message || "Failed to fetch orders."}</p>`;
+      }
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      ordersContainer.innerHTML = "<p class='text-gray-500'>Server error. Try again later.</p>";
+    }
+  });
+  
+  function displayOrders(orders) {
+    const ordersContainer = document.getElementById("recent-orders-container");
+    ordersContainer.innerHTML = ""; // Clear previous data
+  
+    if (!orders || orders.length === 0) {
+      ordersContainer.innerHTML = "<p class='text-gray-500'>No recent orders found.</p>";
+      return;
+    }
+  
+    // Show only the 3 most recent orders
+    const recentOrders = orders.slice(0, 3);
+  
+    recentOrders.forEach((order) => {
+      const orderElement = document.createElement("div");
+      orderElement.classList.add("p-4", "border", "rounded-lg", "shadow-sm", "bg-gray-50");
+  
+      orderElement.innerHTML = `
+        <div class="flex justify-between items-center">
+          <div>
+            <h4 class="text-md font-semibold">Order ID: ${order._id}</h4>
+            <p class="text-sm text-gray-600"><strong>Status:</strong> ${order.status}</p>
+            <p class="text-sm text-gray-600"><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</p>
+            <p class="text-sm text-gray-600"><strong>Total:</strong> Rs${order.totalAmount}</p>
+          </div>
+          
+        </div>
+      `;
+      ordersContainer.appendChild(orderElement);
+    });
+  
+  
+ 
+  }
+  </script>
+  
+  
+  <!-- Support and Settings Section -->
+  <section class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 slide-in">
+   <h3 class="text-xl font-bold mb-4">
+    Support &amp; Settings
+   </h3>
+   <div class="space-y-4">
+    <a class="text-gray-700 hover:underline" href="#">
+     Help &amp; Support
+    </a>
+    <a class="text-gray-700 hover:underline" href="#">
+     FAQs
+    </a>
+    <a class="text-gray-700 hover:underline" href="#">
+     Feedback
+    </a>
+    <a class="text-gray-700 hover:underline" href="#">
+     Settings
+    </a>
+   </div>
+  </section>
+  <!-- Footer Section -->
+  <footer class="bg-yellow-500 mt-6 p-6">
+   <div class="max-w-4xl mx-auto text-center">
+    <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition duration-300 ease-in-out transform hover:scale-105"
+    onclick="logoutUser()">
+Logout
+</button>
+
+    <div class="flex justify-center space-x-6 mt-4">
+     <a class="text-white hover:underline" href="#">
+      Privacy Policy
+     </a>
+     <a class="text-white hover:underline" href="#">
+      Terms &amp; Conditions
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+        alert("Please log in first.");
+        window.location.href = "login.html"; // Redirect if no user data
+        return;
+    }
+
+    document.querySelector("h2").textContent = user.name;
+    document.getElementById("user-email").textContent = user.email;
+});
+
+
+function logoutUser() {
+    localStorage.removeItem("user"); // Remove user data
+    localStorage.removeItem("token"); // Also remove token
+    alert("You have been logged out.");
+    window.location.href = "login.html"; // Redirect to login page
+}
+
+
+    function openwishlistpage() {
+      window.location.href = 'wishlist.html';
+    }
+  </script>
+  <script>
+    function goBack() {
+  window.history.back(); // Go back to the previous page in history
+}
+
+// Address
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("token"); // Get token from local storage
+
+    if (!token) {
+        console.error("No token found! Redirecting to login...");
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:3000/api/profile", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch profile data");
+        }
+
+        const userData = await response.json();
+        console.log("User Data:", userData); // Debugging
+
+        // Update profile details
+        document.querySelector("h2").textContent = userData.name;
+        document.getElementById("user-email").textContent = userData.email;
+        
+        // Update Address (Fix Here)
+        document.getElementById("address-line1").textContent = userData.address || "Address Not Available";
+
+    } catch (error) {
+        console.error("Error fetching profile:", error);
+    }
+});
+
+
+// edit profile modal
+function openModal() {
+    document.getElementById("editProfileModal").classList.remove("hidden");
+
+    // Pre-fill current user details
+    document.getElementById("edit-name").value = document.querySelector("h2").textContent;
+    document.getElementById("edit-address").value = document.getElementById("address-line1").textContent;
+}
+
+function closeModal() {
+    document.getElementById("editProfileModal").classList.add("hidden");
+}
+
+async function updateProfile() {
+    const token = localStorage.getItem("token");
+    const updatedName = document.getElementById("edit-name").value;
+    const updatedAddress = document.getElementById("edit-address").value;
+
+    if (!token) {
+        alert("You are not logged in!");
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:3000/api/profile/update", {
+            method: "PUT",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: updatedName,
+                address: updatedAddress
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // Update UI
+            document.querySelector("h2").textContent = updatedName;
+            document.getElementById("address-line1").textContent = updatedAddress;
+
+            alert("Profile updated successfully!");
+            closeModal(); // Close modal
+        } else {
+            alert(result.message || "Failed to update profile.");
+        }
+    } catch (error) {
+        console.error("Error updating profile:", error);
+        alert("Server error. Try again later.");
+    }
+}
+
+
+
+  </script>
+
+
+
+  <!-- Edit Profile Modal (Hidden by Default) -->
+<div id="editProfileModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+        <h2 class="text-xl font-bold mb-4">Edit Profile</h2>
+
+        <!-- Name Field -->
+        <label class="block text-gray-700">Name:</label>
+        <input type="text" id="edit-name" class="w-full border p-2 rounded mb-2" />
+
+        <!-- Address Field -->
+        <label class="block text-gray-700">Address:</label>
+        <input type="text" id="edit-address" class="w-full border p-2 rounded mb-4" />
+
+        <!-- Buttons -->
+        <div class="flex justify-end space-x-2">
+            <button onclick="closeModal()" class="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">Cancel</button>
+            <button onclick="updateProfile()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Update</button>
+        </div>
+    </div>
+</div>
+
+ </body>
+</html>

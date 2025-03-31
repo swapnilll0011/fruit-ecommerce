@@ -1,0 +1,22 @@
+
+    {
+      "Customer_ID": "CUST002",
+      "Name": "Jane Smith",
+      "Email": "jane.smith@example.com",
+      "Phone": "1234567890",
+      "Password": "hashed_password",
+      "RegistrationDate": ISODate("2025-01-18T00:00:00Z"),
+      "TotalOrders": 3
+    }
+    
+    {
+      "Customer_ID": "CUST003",
+      "Name": "Bob Johnson",
+      "Email": "bob.johnson@example.com",
+      "Phone": "4567891234",
+      "Password": "hashed_password",
+      "RegistrationDate": ISODate("2025-01-15T00:00:00Z"),
+      "TotalOrders": 1
+    }
+  ]);
+  

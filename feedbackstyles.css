@@ -1,0 +1,182 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ff7043;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  input, select, textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    background-color: #f9f9f9;
+  }
+  
+  textarea {
+    background-color: #fff;
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    background-color: #ff7043;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff5722;
+  }
+  
+  .confirmation {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4caf50;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        .star {
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        .star:hover,
+        .star:hover ~ .star,
+        input[name="rating"]:checked ~ label {
+            color: gold;
+        }
+        input[name="rating"] {
+            display: none;
+        }
+
+        /* Rating Container */
+.rating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Rating Buttons */
+.rating-box {
+  display: flex;
+  gap: 15px;
+}
+
+.rating-option {
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s;
+  filter: grayscale(50%);
+}
+
+.rating-option:hover,
+.rating-option.active {
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
+/* Individual Emoji Colors */
+.rating-option:nth-child(1) { color: #ff4d4d; } /* Angry */
+.rating-option:nth-child(2) { color: #ff944d; } /* Sad */
+.rating-option:nth-child(3) { color: #ffcc00; } /* Neutral */
+.rating-option:nth-child(4) { color: #47d147; } /* Happy */
+.rating-option:nth-child(5) { color: #0084ff; } /* Love */
+
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      margin: 10px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    .submit-btn {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+    }
+  
+    .submit-btn {
+      font-size: 0.9rem;
+      padding: 10px 15px;
+    }
+  }
+  

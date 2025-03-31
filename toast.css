@@ -1,0 +1,100 @@
+/* Toast message styles */
+.toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    z-index: 1000;
+}
+
+/* Show the toast message */
+.toast-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Toast message color variants */
+.toast-message.success {
+    background: #28a745;
+}
+
+.toast-message.error {
+    background: #dc3545;
+}
+
+.toast-message.info {
+    background: #17a2b8;
+}
+
+/* Toast fade-in and fade-out animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+
+/* General Cart Badge Styles */
+.cart-badge {
+    position: absolute;
+    top: 5px;
+    right: 35%;
+    transform: translate(50%, -50%);
+    background: #f00;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .cart-badge {
+        top: 5px;
+        right: 30%;
+    }
+}
+
+/* Default styles (applies to all screen sizes) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* Styles for desktop screens (min-width 768px) */
+@media (min-width: 768px) {
+    body {
+        padding: 40px;
+        background-color: #edecec;
+    }
+}

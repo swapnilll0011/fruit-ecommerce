@@ -1,0 +1,116 @@
+body {
+    background-color: #f9f9f9;
+  }
+  .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.1); /* Transparent effect */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        backdrop-filter: blur(10px); /* Blur effect for the background */
+        z-index: 1000;
+    }
+  .header h4 {
+    color: #8a2be2;
+    font-weight: bold;
+    font-size:medium;
+  }
+  .search-box {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+  .search-box input {
+    width: 100%;
+    padding-left: 40px;
+  }
+  .search-box img {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+  }
+  .banner {
+    background-color: #0ea5e9;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .banner-text {
+    max-width: 50%;
+  }
+  .product-images img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  @media (min-width: 768px) {
+        .banner {
+            flex-wrap: nowrap;
+        }
+        .banner-text {
+            max-width: 50%;
+            text-align: left;
+        }
+        .product-images img {
+            width: 100px;
+        }
+    }
+  
+  /* Mobile View Adjustments */
+  @media (max-width: 768px) {
+    .header {
+      flex-wrap: wrap;
+      justify-content: flex-start; /* Align items to the left */
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .header h4 {
+      width: auto; 
+      margin: 0;
+      font-size: 18px;
+      text-align: left; 
+    }
+  
+    .search-box {
+      width: 90%; /* Adjust width to be smaller than full screen */
+      max-width: 340px; /* Prevents it from being too wide on large mobile screens */
+      margin: 8px auto; /* Centers it properly */
+      display: flex;
+      justify-content: center;
+    }
+  
+    .search-box input {
+      width: 100%; /* Ensures the input box takes up the available space */
+      padding: 8px 30px; /* Adjust padding for a clean look */
+      font-size: 14px; /* Adjust font size */
+      
+    
+    }
+  
+    .search-box img {
+      width: 18px; /* Adjust search icon size */
+      left: 8px; /* Keeps the icon in place */
+    }
+  
+    .header button {
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      padding: 5px 12px;
+      font-size: 13px;
+    }
+  }

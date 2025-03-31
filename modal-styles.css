@@ -1,0 +1,65 @@
+
+    /* Modal Styles */
+    .modal-header {
+        border-bottom: none;
+        text-align: center;
+      }
+  
+      .modal-content {
+        border-radius: 20px;
+        padding: 20px;
+      }
+  
+      .modal-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #ff7043;
+      }
+  
+      .modal-body {
+        text-align: center;
+      }
+  
+      .modal-body input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+      }
+  
+      .modal-body button {
+        background-color: #ff7043;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        width: 100%;
+      }
+  
+      .modal-body button:hover {
+        background-color: #f4511e;
+        cursor: pointer;
+      }
+  
+      .modal-footer {
+        border-top: none;
+        justify-content: center;
+      }
+  
+      .modal-footer p {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+  
+      .btn-close {
+        color: #ff7043;
+      }
+  
+      .modal-body input:focus {
+        border-color: #ff7043;
+        box-shadow: 0 0 5px rgba(255, 112, 67, 0.5);
+      }
+  

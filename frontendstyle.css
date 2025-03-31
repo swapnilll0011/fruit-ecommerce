@@ -1,0 +1,290 @@
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 15px;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.search-box img {
+  width: 20px;
+  height: 20px;
+}
+input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.search-results {
+  border: 1px solid #ddd;
+  max-width: 320px;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Hidden initially */
+  background: white;
+}
+.search-results div {
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.search-results div:hover {
+  background: #f0f0f0;
+}
+.search-results div:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  text-align: left;
+  margin-bottom: 5px;
+  color: #31e719;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Fruit List Styles */
+.fruit-list {
+  position: relative; /* Ensures child elements position properly */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Ensures 5 cards per row */
+  gap: 15px; /* Space between items */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+
+.fruit-list li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: last baseline;
+  justify-content: space-between; /* Ensures content is spaced evenly */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  height: 300px; /* Fixed height for all cards */
+  width: 100%; /* Full width inside grid */
+}
+
+.fruit-list li:hover {
+  transform: translateY(-8px); /* Increased hover effect */
+}
+
+.fruit-list img {
+  width: 100%;
+  height: 150px; /* Fixed Image Height */
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.fruit-list li h3 {
+  font-weight: bold;
+  margin: 10px 0 5px;
+  font-size: 18px;
+  text-align: left;
+  
+}
+
+/* Paragraph Styles */
+.fruit-list li p {
+  font-weight: bold;
+  display: block; /* Ensure paragraphs are displayed */
+  margin: -10px 0;
+  color: #000000; /* General text color */
+}
+
+.fruit-list li p strong {
+  
+  color: #1d1c1c; /* Strong text should be black */
+}
+
+/* Quantity Styling */
+.fruit-list .fruit-quantity {
+  font-weight:bold;
+  color: #626161;
+  font-size: 16px;
+  display: block; /* Ensure visibility */
+}
+
+/* Static background colors for each class with hover effects */
+.fruit-list-1 {
+  background-color: #f8bbd0 !important; /* Light pink */
+}
+.fruit-list-1:hover {
+  background-color: #f48fb1 !important; /* Darker pink */
+}
+
+.fruit-list-2 {
+  background-color: #fff59d !important; /* Light yellow */
+}
+.fruit-list-2:hover {
+  background-color: #ffe082 !important; /* Darker yellow */
+}
+
+.fruit-list-3 {
+  background-color: #c8e6c9 !important; /* Light green */
+}
+.fruit-list-3:hover {
+  background-color: #a5d6a7 !important; /* Darker green */
+}
+
+.fruit-list-4 {
+  background-color: #e1bee7 !important; /* Light purple */
+}
+.fruit-list-4:hover {
+  background-color: #ce93d8 !important; /* Darker purple */
+}
+
+.fruit-list-5 {
+  background-color: #dac9b3 !important; /* Beige */
+}
+.fruit-list-5:hover {
+  background-color: #c8b28c !important; /* Darker beige */
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  width: 55px;
+  height: 55px;
+  border-bottom-right-radius: 30%;
+  border-top-left-radius: 25%;
+  padding: 8px;
+  position: absolute;
+  bottom: 0px; /* Positioned at the bottom-right */
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f95928; /* Your original warning yellow */
+  border: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth hover effect */
+  visibility: visible !important; /* Ensures visibility at all times */
+  opacity: 1 !important;
+}
+
+.add-to-cart:hover {
+  transform: scale(1.1);
+  background-color: #d8461f; /* Slightly darker on hover */
+}
+
+/* Center Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  width: 350px; /* Adjust the width */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Image Container */
+.image-container {
+  width: 150px; /* Keep it small */
+  height: 150px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Styling */
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+
+
+/* Responsive Adjustments */
+@media (min-width: 1024px) {
+  .fruit-list {
+    grid-template-columns: repeat(5, 1fr); /* 4 cards per row for desktop */
+  }
+}
+
+@media (max-width: 768px) {
+  .fruit-list {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .fruit-list {
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row for mobile */
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+
+.add-to-cart {
+  width: 50px;
+  height: 50px;
+  padding: 6px;
+}
+
+
+@media (max-width: 480px) {
+  .fruit-list {
+    grid-template-columns: repeat(2, 1fr); /* Ensure 2 cards per row for smaller phones */
+    gap: 8px;
+    padding: 5px;
+  }
+  .popular-heading{
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    margin: 25px 0 15px 20px; /* Adjust spacing */
+    text-transform: capitalize; /* Ensure first letter is capital */
+    display: block; /* Prevent collapse */
+  }
+}
+
+
+
+/* fruit details modal */
+

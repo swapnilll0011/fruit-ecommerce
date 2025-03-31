@@ -1,0 +1,158 @@
+/* Popular Section Custom Styling */
+.bg-pink-200 {
+    background-color: #f8bbd0; /* Light Pink for Apple */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    
+}
+
+.bg-green-200 {
+    background-color: #c8e6c9; /* Light Green for Green Grapes */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    
+}
+
+.bg-yellow-200 {
+    background-color: #fff59d; /* Light Yellow for Banana */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.bg-purple-200 {
+    background-color: #e1bee7; /* Light Purple for Lychee */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.bg-green-300 {
+    background-color: #a5d6a7; /* Light Green for Amloki */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.bg-orange-200 {
+    background-color: #ffcc80; /* Light Orange for Orange */
+    border-radius: 12px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effects with Smooth Transition */
+.bg-pink-200:hover {
+    background-color: #f06292; /* Darker Pink for Apple on hover */
+}
+
+.bg-green-200:hover {
+    background-color: #81c784; /* Darker Green for Green Grapes on hover */
+}
+
+.bg-yellow-200:hover {
+    background-color: #ffeb3b; /* Darker Yellow for Banana on hover */
+}
+
+.bg-purple-200:hover {
+    background-color: #ba68c8; /* Darker Purple for Lychee on hover */
+}
+
+.bg-green-300:hover {
+    background-color: #66bb6a; /* Darker Green for Amloki on hover */
+}
+
+.bg-orange-200:hover {
+    background-color: #ff9800; /* Darker Orange for Orange on hover */
+}
+
+/* Card Styling */
+.card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Button Hover Styling */
+.card button {
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #ff7043; /* Darker orange on hover */
+}
+
+/* Heart Icon Hover */
+.text-red-500 {
+    transition: color 0.3s ease;
+}
+
+.text-red-500:hover {
+    color: #d32f2f; /* Red color on heart hover */
+}
+
+/* Card Hover Effects */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this at the end of your current CSS file */
+/* Heart Button Styles */
+.heart-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem; /* Large for visibility */
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .heart-btn:hover {
+    transform: scale(1.2); /* Slight zoom-in effect */
+  }
+  
+  .heart-btn.active {
+    color: #d32f2f; /* Red for the filled heart */
+  }
+  
+  /* Cart Button Styles */
+  .cart-btn {
+    display: block;
+    margin: 0 auto; /* Center-align the button */
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cart-btn:hover {
+    background-color: #e64a19; /* Darker orange */
+    transform: scale(1.05); /* Slight zoom-in effect */
+  }
+  
+  /* Responsive Heart Button Position */
+  .position-relative {
+    position: relative;
+  }
+  
+  .position-absolute {
+    position: absolute;
+  }
+  
+  .top-0 {
+    top: 0;
+  }
+  
+  .end-0 {
+    right: 0;
+  }
+  
+  .m-2 {
+    margin: 8px;
+  }
+
+  
+  

@@ -1,0 +1,22 @@
+{
+  "fruits": [
+    {
+      "name": "Apple",
+      "price": 1.50,
+      "description": "A fresh, crispy apple.",
+      "imageURL": "https://example.com/images/apple.jpg"
+    },
+    {
+      "name": "Banana",
+      "price": 0.99,
+      "description": "A ripe banana full of potassium.",
+      "imageURL": "https://example.com/images/banana.jpg"
+    },
+    {
+      "name": "Orange",
+      "price": 1.20,
+      "description": "A juicy orange to refresh you.",
+      "imageURL": "https://example.com/images/orange.jpg"
+    }
+  ]
+}

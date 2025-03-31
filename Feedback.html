@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="feedbackstyles.css">
+  <style>
+    /* General Page Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    /* Logo Styling */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .logo-container img {
+      width: 120px;
+      height: auto;
+    }
+
+    /* Form Styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    /* Confirmation Message */
+    .confirmation {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>We Value Your Feedback!</h1>
+    <p>Help us improve our offerings by providing your feedback.</p>
+    
+    <!-- Logo Display -->
+    <div class="logo-container">
+      <img src="images/LogoFruitfulFinds.png" alt="Company Logo">
+    </div>
+
+    <form id="feedback-form">
+      <!-- Rating Section -->
+      <label for="rating">Rate Our Website:</label>
+      <select id="rating" name="rating" required>
+        <option value="" disabled selected>Select a rating</option>
+        <option value="1">😡 - Poor</option>
+        <option value="2">😞 - Fair</option>
+        <option value="3">😐 - Good</option>
+        <option value="4">😊 - Very Good</option>
+        <option value="5">😍 - Excellent</option>
+      </select>
+
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" name="comments" placeholder="Write your comments here" rows="4"></textarea>
+
+      <button type="submit" id="submit-btn" class="submit-btn">Submit Feedback</button>
+    </form>
+    
+    <!-- Confirmation Message -->
+    <div id="confirmation" class="confirmation">
+      <p>Thank you for your feedback!</p>
+    </div>
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="feedbackscript.js"></script>
+
+</body>
+</html>

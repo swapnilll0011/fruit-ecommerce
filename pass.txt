@@ -1,0 +1,2 @@
+mongodb+srv://<db_username>:<db_password>@cluster0.ifwzn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://Rahul:<db_password>@cluster0.nvyqa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

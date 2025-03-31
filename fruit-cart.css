@@ -1,0 +1,578 @@
+.slider {
+  width: 100%; /* Full width of the container */
+  max-width: 100vw;
+  height: 100%; /* Set the height as per your requirement */
+  max-height: 100vh;
+  margin: auto;
+  bottom: 70px;
+  position: relative;
+  margin-top: 100px;
+  overflow: hidden;
+  background: #e6e0dc;
+}
+
+.slider .list {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  transition: 1s;
+  align-items: center; /* Vertically center the images */
+}
+
+.slider .list img {
+  width: 100%; /* Image width to fit the slider width */
+  max-width: 100vw; /* Ensures it takes full viewport width */
+  height: 100%; /* Ensures the image fills the full height of the slider */
+  max-height: 100vh;
+  object-fit: contain; /* Makes sure the image is scaled properly without getting zoomed or cropped */
+  position: relative; /* Keeps the image fixed in the container */
+  border-radius: 25px;
+}
+
+.slider .buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider .buttons button {
+  width: 40px; /* Adjusted button size */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff5;
+  color: #fff;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.slider .dots {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.slider .dots li {
+  list-style: none;
+  width: 8px; /* Reduced dot size */
+  height: 8px;
+  background-color: #fff;
+  margin: 8px; /* Adjusted margin for spacing */
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.slider .dots li.active {
+  width: 20px; /* Larger active dot size */
+}
+
+@media screen and (max-width: 768px) {
+  .slider {
+    height: 180px; /* Adjusted height for mobile screens */
+    border-radius: 25px;
+  }
+
+  .slider .buttons button {
+    width: 30px; /* Smaller button size for mobile */
+    height: 30px;
+  }
+}
+
+/* Desktop-specific styling */
+@media screen and (min-width: 769px) {
+  .slider {
+    height: 400px; /* Fixed height for the slider on desktop screens */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Prevent content from overflowing */
+    background: #e6e0dc;
+    border-radius: 25px; /* Matches image border radius */
+  }
+
+  .slider .list img {
+    width: 100%; /* Ensures image fits the width of the slider container */
+    height: 100%; /* Ensures image fits the height of the slider container */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    object-position: center; /* Centers the image within the container */
+    border-radius: 25px; /* Adds rounded corners */
+    position: relative;
+    top: 0; /* Reset top positioning */
+  }
+}
+
+
+
+
+
+
+/* Base Styling for Cards */
+.fruit-card,
+.fruit-card-1,
+.fruit-card-2,
+.fruit-card-3,
+.fruit-card-4,
+.fruit-card-5{
+  position: relative;
+  text-align: center;
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.fruit-card {
+  background-color: #f8bbd0; /* Light pink */
+}
+
+.fruit-card:hover {
+  background-color: #f06292; /* Darker pink */
+}
+
+.fruit-card-1 {
+  background-color: #fff59d; /* Light yellow */
+}
+
+.fruit-card-1:hover {
+  background-color: #ffeb3b; /* Darker yellow */
+}
+
+.fruit-card-2 {
+  background-color: #c8e6c9; /* Light green */
+}
+
+.fruit-card-2:hover {
+  background-color: #81c784; /* Darker green */
+}
+
+.fruit-card-3 {
+  background-color: #e1bee7; /* Light purple */
+}
+
+.fruit-card-3:hover {
+  background-color: #ba68c8; /* Darker purple */
+}
+
+.fruit-card-4 {
+  background-color: #e1ffbc; /* Light purple */
+}
+
+.fruit-card-4:hover {
+  background-color: #bbf574; /* Darker purple */
+}
+
+.fruit-card-5 {
+  background-color: #dac9b3;
+}
+
+.fruit-card-5:hover { 
+  background-color: #ce974e;
+}
+
+/* Heart Button Styling */
+.fruit-card .heart-btn,
+.fruit-card-1 .heart-btn,
+.fruit-card-2 .heart-btn,
+.fruit-card-3 .heart-btn,
+.fruit-card-4 .heart-btn,
+.fruit-card-5 .heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: grey;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Filled Heart Style */
+.fruit-card .heart-btn.filled,
+.fruit-card-1 .heart-btn.filled,
+.fruit-card-2 .heart-btn.filled,
+.fruit-card-3 .heart-btn.filled,
+.fruit-card-4 .heart-btn.filled,
+.fruit-card-5 .heart-btn.filled {
+  color: red;
+}
+
+/* Hover Effect for Heart Button */
+.fruit-card .heart-btn:hover,
+.fruit-card-1 .heart-btn:hover,
+.fruit-card-2 .heart-btn:hover,
+.fruit-card-3 .heart-btn:hover,
+.fruit-card-4 .heart-btn:hover,
+.fruit-card-5 .heart-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Image Styling */
+.fruit-card img,
+.fruit-card-1 img,
+.fruit-card-2 img,
+.fruit-card-3 img,
+.fruit-card-4 img,
+.fruit-card-5 img {
+  width: auto;
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Toast message styles */
+.toast-message {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  z-index: 1000;
+}
+
+/* Base styles for the toast message */
+.toast-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Ensures it's not focusable when hidden */
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+  z-index: 1000;
+}
+
+/* Show the toast message */
+.toast-show {
+  opacity: 1; /* Make it fully visible */
+  visibility: visible; /* Ensure it becomes visible */
+  transform: translateY(0); /* Bring it into place */
+}
+
+
+/* General Cart Badge Styles */
+.cart-badge {
+  position: absolute;
+  top: 5px; /* Adjust as per alignment with the cart icon */
+  right: 35%; /* Adjust as per alignment with the cart icon */
+  transform: translate(50%, -50%); /* Centers the badge properly relative to the icon */
+  background: #f00;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .cart-badge {
+    top: 5px; /* Fine-tune for smaller screens */
+    right: 30%; /* Fine-tune for smaller screens */
+  }
+}
+
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .fruit-card,
+  .fruit-card-1,
+  .fruit-card-2,
+  .fruit-card-3, 
+  .fruit-card-4, 
+  .fruit-card-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    height: 230px;
+    
+  }
+
+  .fruit-card .heart-btn,
+  .fruit-card-1 .heart-btn,
+  .fruit-card-2 .heart-btn,
+  .fruit-card-3 .heart-btn, 
+  .fruit-card-4 .heart-btn,
+  .fruit-card-5 .heart-btn {
+    top: 5px;
+    right: 5px;
+    font-size:1.3rem ;
+  }
+
+  .fruit-card img,
+  .fruit-card-1 img,
+  .fruit-card-2 img,
+  .fruit-card-3 img,
+  .fruit-card-4 img,
+  .fruit-card-5 img {
+    max-width: 80%;
+    max-height: 130px;
+  }
+  .h2 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* tr.html wala css */
+
+/* Prevents page shifting when modal opens */
+body.modal-open {
+    padding-right: 0 !important; /* Ensures no extra padding is added */
+    overflow: hidden; /* Prevents background scrolling */
+}
+
+
+
+
+    .toast-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+  }
+
+  .toast-message.success {
+    background: #28a745;
+  }
+
+  .toast-message.error {
+    background: #dc3545;
+  }
+
+  .toast-message.info {
+    background: #17a2b8;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+/* Default styles (applies to all screen sizes) */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* Mobile-friendly default */
+}
+
+/* Styles for desktop screens (min-width 768px) */
+@media (min-width: 768px) {
+  body {
+    padding: 40px;
+    background-color: #edecec;
+  }
+}
+
+
+    /* Sticky Header */
+    .sticky-header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .sticky-header input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .banner {
+      background-color: #ff7043;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin: 10px 15px;
+      border-radius: 15px;
+    }
+
+    .banner h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .banner button {
+      margin-top: 10px;
+      background-color: white;
+      color: #ff7043;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    .banner button:hover {
+      background-color: #f4511e;
+      color: white;
+    }
+
+    
+
+    
+
+
+
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .bottom-nav button {
+      background: none;
+      border: none;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6c757d;
+      transition: 0.3s ease;
+    }
+
+    .bottom-nav button:hover {
+      color: #ff7043;
+    }
+
+    .bottom-nav .active {
+      color: #ff7043;
+    }
+
+    .bottom-nav i {
+      font-size: 1.5rem;
+      display: block;
+    }
+
+    .section-title {
+      padding: 15px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: -30px;
+      margin-left: 4%;
+      letter-spacing: .025em;
+      
+    }
+
+    .fruit-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 1rem;
+      }
+
+      .banner h2 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Mobile view adjustment for card spacing */
+    @media (max-width: 576px) {
+      .card {
+        margin-bottom: 15px;
+      }
+
+      .row > .col-6 {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+
+      
+    }
+    @media screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem; /* Reduce font size for medium screens */
+  }
+}
+
+/* For screens with width 480px and below */
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem; /* Further reduce font size for small screens */
+  }
+}
+
+.mobile-only {
+    display: none;
+  }
+
+  /* Show only on screens smaller than 768px */
+  @media screen and (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+  }
+  
+    
+  

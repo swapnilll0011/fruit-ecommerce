@@ -1,0 +1,56 @@
+
+        /* Reset default margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container for the buttons */
+        .btns {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Styling for buttons */
+        .btn {
+            background: transparent;
+            border: none;
+            font-size: 4rem;
+            color: grey;
+            cursor: pointer;
+            outline: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        /* Hover effect */
+        .btn i:hover {
+            color: red; /* Red fill on hover */
+            transform: scale(1.2); /* Slightly enlarge */
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .btn {
+                font-size: 3rem;
+            }
+
+            .btns {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                font-size: 2rem;
+            }
+
+            .btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
