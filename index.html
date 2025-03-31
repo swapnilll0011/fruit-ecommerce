@@ -1,9 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; URL='front-home.html'" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>If you are not redirected, <a href="front-home.html">click here</a>.</p>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+    <ul>
+      <li><a href="#fruits" onclick="showSection('fruit-container')">Product Management</a></li>
+      <li><a href="#orders" onclick="showSection('order-container')">Orders</a></li>
+      <li><a href="#users" onclick="showSection('users-container')">Users</a></li>
+      <li><a href="#feedback" onclick="showSection('feedback-container')">Feedback</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content">
+    <center>
+      <h1>Fruit Admin Panel</h1>
+    </center>
+
+    <!-- Fruit Management -->
+    <div id="fruit-container" class="section">
+      <div id="header-row">
+        <h2>Available Fruits</h2>
+        <input type="text" id="fruitSearch" onkeyup="filterFruits()" placeholder="Search Fruits...">
+
+        <button id="openAddFruitModal" class="add-btn">Add New Fruit</button>
+      </div>
+      <ul id="fruits" class="fruit-list"></ul>
+    </div>
+
+    <!-- Order Management -->
+    <div id="order-container" class="section" style="display: none;">
+      <h2>Orders</h2>
+      <div id="order-filters">
+        <input type="text" id="orderSearchInput" placeholder="Search orders..." />
+        <button onclick="searchOrders()">Search</button>
+        <input type="date" id="startDate" />
+        <input type="date" id="endDate" />
+        <button onclick="filterOrdersByDate()">Filter by Date</button>
+      </div>
+      <table id="orderTableOrders">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Fruit&Quantity</th>
+            <th>Address&PhoneNo.</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="orderTableBodyOrders"></tbody>
+      </table>
+    </div>
+
+    <!-- User Section -->
+    <div id="users-container" class="section" style="display: none;">
+      <h2>Users</h2>
+      <input type="text" id="UserSearch" placeholder="Search Users" oninput="filterUsers()" />
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Registration Date</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal -->
+    <div id="fruitModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle">Add a New Fruit</h2>
+        <form id="fruitForm" enctype="multipart/form-data">
+          <input type="text" id="fruitName" name="name" placeholder="Fruit Name" required />
+          <input type="number" id="fruitPrice" name="price" placeholder="Price" required step="0.01" />
+          <textarea id="fruitDescription" name="description" placeholder="Description" required></textarea>
+          <input type="number" id="fruitQuantity" name="quantity" placeholder="Quantity in Kgs" required step="0.1" />
+          <input type="file" id="fruitImageFile" name="image" accept="image/*" />
+          
+          <!-- Category Selection -->
+          <select id="fruitCategory" name="category" required onchange="toggleSeasonalOptions()">
+            <option value="">Select Category</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Seasonal">Seasonal Fruits</option>
+          </select>
+          
+          <!-- Seasonal Fruits Subcategory -->
+          <select id="seasonalCategory" name="season" style="display: none;">
+            <option value="">Select Season</option>
+            <option value="Summer">Summer</option>
+            <option value="Winter">Winter</option>
+            <option value="Monsoon">Monsoon</option>
+          </select>
+          
+          <p id="existingImagePath"></p>
+          <button type="submit" id="submitButton" class="submit-btn">Add Fruit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback Management -->
+<div id="feedback-container" class="section" style="display: none;">
+  <h2>Customer Feedback</h2>
+  <table id="feedbackTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="feedbackTableBody"></tbody>
+  </table>
+</div>
+
+
+  <script src="script.js" defer></script>
+  <script>
+    function toggleSeasonalOptions() {
+      const category = document.getElementById("fruitCategory").value;
+      const seasonalSelect = document.getElementById("seasonalCategory");
+      if (category === "Seasonal") {
+        seasonalSelect.style.display = "block";
+      } else {
+        seasonalSelect.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
